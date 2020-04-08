@@ -19,3 +19,9 @@ class Oracle(object):
             return web_socket
         else:
             raise Exception("Not Connected to Websocket!")
+
+
+class EventListeningOracle(Oracle):
+
+    def __init__(self):
+        super(self, EventListeningOracle).__init__()
