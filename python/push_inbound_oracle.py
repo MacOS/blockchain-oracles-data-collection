@@ -7,7 +7,7 @@
     for evalution purposes.
 
     A push in-bound oracle is a software artifact that writes data to the blockchain (in-bound) triggered
-    by an on-chain event (push).
+    by an off-chain event (push).
 
     Author: Stefan Bachhofner
 '''
