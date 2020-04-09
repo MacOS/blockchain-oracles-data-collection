@@ -65,8 +65,18 @@ class _TransactionSendingOracle(Oracle):
     r"""
         _TransactionSendingOracle is the base class for all oracles that have to send a transaction.
     """
-    def __init__(self, *args, **kwargs):
+    def __init__(self, abi, *args, **kwargs):
         super(self, TransactionSendingOracle).__init__(args, kwargs)
+
+        self._abi = abi
+
+        self._smart_contract = self.get_smart_contract()
+
+    def get_smart_contract(self):
+        return self._web_socket.eth.contract(
+            address= web3.Web3.toChecksumAddress(self._smart_contract_address),
+            abi=self._abi
+        )
 
     def send_raw_transaction(self, state):
         raise NotImplementedError("send raw transaction not implemented")
