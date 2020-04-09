@@ -2,7 +2,9 @@ import web3
 
 
 class _Oracle(object):
-
+    r"""
+        _Oracle is the base class for all oracles.
+    """
     def __init__(self, smart_contract_address, topics, web_socket):
         self._smart_contract_address = smart_contract_address
         self._topics = topics
@@ -22,7 +24,9 @@ class _Oracle(object):
 
 
 class _EventListeningOracle(Oracle):
-
+    r"""
+        _EventListeningOracle is the base class for all oracles that have to listen to events.
+    """
     def __init__(self, filter, *args, **kwargs):
         super(self, EventListeningOracle).__init__(args, kwargs)
 
@@ -48,7 +52,9 @@ class _EventListeningOracle(Oracle):
 
 
 class _TransactionSendingOracle(Oracle):
-
+    r"""
+        _TransactionSendingOracle is the base class for all oracles that have to send a transaction.
+    """
     def __init__(self, *args, **kwargs):
         super(self, TransactionSendingOracle).__init__(args, kwargs)
 
