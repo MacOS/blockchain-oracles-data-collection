@@ -12,13 +12,14 @@
     Author: Stefan Bachhofner
 '''
 
-from utils import Oracle
+from utils import _TransactionSendingOracle
 
 
-class PushInboundOracle(Oracle):
+class PushInboundOracle(_TransactionSendingOracle):
 
-    def __init__(self):
-        super(self, PushInboundOracle).__init__()
+    def __init__(self, *args, **kwargs):
+        super(self, PushInboundOracle).__init__(args, kwargs)
+
  
  
 def main():
