@@ -4,6 +4,11 @@ import web3
 class _Oracle(object):
     r"""
         _Oracle is the base class for all oracles.
+
+        Args:
+            smart_contract_address (string): An identifier for a smart contract.
+            topics (string): An identifier for a topic.
+            web_socket (sting): The websocket to be used. It has to start with wss:://some.web.socket 
     """
     def __init__(self, smart_contract_address, topics, web_socket):
         self._smart_contract_address = smart_contract_address
