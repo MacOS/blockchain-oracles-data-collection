@@ -41,7 +41,7 @@ class EventListeningOracle(Oracle):
         while True:
             for event in self.eth_filter.get_new_entries():
                 print(f"(Loop) New Transaction: {event}")
-                self.process_new_transaction(event)
+                self.process_new_event(event)
 
-    def process_new_transaction(self, new_transaction):
-        raise NotImplementedError()
+    def process_new_event(self, new_event):
+        raise NotImplementedError("process_new_evnt is not implemented")
