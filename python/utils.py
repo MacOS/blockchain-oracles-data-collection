@@ -64,6 +64,9 @@ class _EventListeningOracle(Oracle):
 class _TransactionSendingOracle(Oracle):
     r"""
         _TransactionSendingOracle is the base class for all oracles that have to send a transaction.
+
+        Args:
+            abi (string): The application binary interface (ABI) of a smart contract.
     """
     def __init__(self, abi, *args, **kwargs):
         super(self, TransactionSendingOracle).__init__(args, kwargs)
