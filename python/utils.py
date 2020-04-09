@@ -91,4 +91,8 @@ class _TransactionSendingOracle(Oracle):
         raise NotImplementedError("assemble transaction not implemented")
 
     def sign_transaction(self, transaction):
-        raise NotImplementedError("sign transaction not implemented")
+        r"""
+            Signs a transaction with the private_key.
+        """
+        return self._web_socket.eth.account.sign_transaction(
+            transaction, self._private_key)
