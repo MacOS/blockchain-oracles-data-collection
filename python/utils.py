@@ -26,7 +26,7 @@ class EventListeningOracle(Oracle):
     def __init__(self, filter, *args, **kwargs):
         super(self, EventListeningOracle).__init__(args, kwargs)
 
-        self.filter = filter
+        self._filter = filter
 
         self.subscribed_filter = self.subscribe_to_filter(filter)
 
@@ -37,3 +37,11 @@ class EventListeningOracle(Oracle):
         })
 
     def listen_to_filter(self):
+        print(f"Listening to filter {self._filter} from smart contract {self._smart_contract_address}")
+        while True:
+            for event in self.eth_filter.get_new_entries():
+                print(f"(Loop) New Transaction: {event}")
+                self.process_new_transaction(event)
+
+    def process_new_transaction(self, new_transaction):
+        raise NotImplementedError()
