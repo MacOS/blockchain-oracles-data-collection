@@ -31,6 +31,9 @@ class _Oracle(object):
 class _EventListeningOracle(Oracle):
     r"""
         _EventListeningOracle is the base class for all oracles that have to listen to events.
+
+        Args:
+            filter (string): An identifier for the topic to be listend to.
     """
     def __init__(self, filter, *args, **kwargs):
         super(self, EventListeningOracle).__init__(args, kwargs)
