@@ -1,7 +1,7 @@
 import web3
 
 
-class Oracle(object):
+class _Oracle(object):
 
     def __init__(self, smart_contract_address, topics, web_socket):
         self._smart_contract_address = smart_contract_address
@@ -21,7 +21,7 @@ class Oracle(object):
             raise Exception("Not Connected to Websocket!")
 
 
-class EventListeningOracle(Oracle):
+class _EventListeningOracle(Oracle):
 
     def __init__(self, filter, *args, **kwargs):
         super(self, EventListeningOracle).__init__(args, kwargs)
@@ -47,7 +47,7 @@ class EventListeningOracle(Oracle):
         raise NotImplementedError("process_new_event is not implemented")
 
 
-class TransactionSendingOracle(Oracle):
+class _TransactionSendingOracle(Oracle):
 
     def __init__(self, *args, **kwargs):
         super(self, TransactionSendingOracle).__init__(args, kwargs)
