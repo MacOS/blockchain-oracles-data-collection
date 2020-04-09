@@ -44,4 +44,22 @@ class EventListeningOracle(Oracle):
                 self.process_new_event(event)
 
     def process_new_event(self, new_event):
-        raise NotImplementedError("process_new_evnt is not implemented")
+        raise NotImplementedError("process_new_event is not implemented")
+
+
+class TransactionSendingOracle(Oracle):
+
+    def __init__(self, *args, **kwargs):
+        super(self, TransactionSendingOracle).__init__(args, kwargs)
+
+    def send_raw_transaction(self, state):
+        raise NotImplementedError("send raw transaction not implemented")
+
+    def estimate_gas(self, state):
+        raise NotImplementedError("estimate gas not implemented")
+
+    def assemble_transaction(self, state, estimated_gas):
+        raise NotImplementedError("assemble transaction not implemented")
+
+    def sign_transaction(self, transaction):
+        raise NotImplementedError("sign transaction not implemented")
