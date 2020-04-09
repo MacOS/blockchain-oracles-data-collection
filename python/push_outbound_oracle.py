@@ -12,10 +12,10 @@
     Author: Stefan Bachhofner
 '''
 
-from utils import EventListeningOracle
+from utils import _EventListeningOracle
 
 
-class PushOutboundOracle(EventListeningOracle):
+class PushOutboundOracle(_EventListeningOracle):
 
     def __init__(self):
         super(self, PushOutboundOracle).__init__()
