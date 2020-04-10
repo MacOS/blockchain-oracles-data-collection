@@ -85,7 +85,11 @@ class _TransactionSendingOracle(Oracle):
         raise NotImplementedError("send raw transaction not implemented")
 
     def estimate_gas(self, state):
-        raise NotImplementedError("estimate gas not implemented")
+        return self._web_socket.eth.estimateGas({
+            'from': web3.Web3.toChecksumAddress(self.public_key),
+            'to': web3.Web3.toChecksumAddress(self.smart_contract_address),
+            'data': self.encoded_abi
+        })
 
     def assemble_transaction(self, state, estimated_gas):
         raise NotImplementedError("assemble transaction not implemented")
