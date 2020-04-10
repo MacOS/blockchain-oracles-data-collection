@@ -92,6 +92,14 @@ class _TransactionSendingOracle(Oracle):
         })
 
     def assemble_transaction(self, state, estimated_gas):
+        r"""
+            Assembles the transaction into a python dictionary. The returned dictionary is then used by
+            send_raw_transaction.
+
+            Args:
+                state (dic): The state to be inserted into the blockchain.
+                estimated_das (int): The estimated gas of the transaction.
+        """
         raise NotImplementedError("assemble transaction not implemented")
 
     def sign_transaction(self, transaction):
