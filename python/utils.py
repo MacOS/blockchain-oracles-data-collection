@@ -81,6 +81,13 @@ class _TransactionSendingOracle(Oracle):
             abi=self._abi
         )
 
+    def get_nonce(self):
+        r"""
+            Returns the nonce of the account _public_address.
+        """
+        return self._web_socket.eth.getTransactionCount(
+            web3.Web3.toChecksumAddress(self._public_address))
+
     def send_raw_transaction(self, state):
         raise NotImplementedError("send raw transaction not implemented")
 
