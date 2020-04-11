@@ -18,7 +18,7 @@ from .utils import _TransactionSendingOracle
 class PushInboundOracle(_TransactionSendingOracle):
 
     def __init__(self, *args, **kwargs):
-        super(PushInboundOracle, self).__init__(args, kwargs)
+        super(PushInboundOracle, self).__init__(*args, **kwargs)
 
 
 class ArrivalState(PushInboundOracle):

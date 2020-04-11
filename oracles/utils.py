@@ -68,7 +68,7 @@ class _TransactionSendingOracle(_Oracle):
             abi (string): The application binary interface (ABI) of a smart contract.
     """
     def __init__(self, abi, *args, **kwargs):
-        super(_TransactionSendingOracle, self).__init__(args, kwargs)
+        super(_TransactionSendingOracle, self).__init__(*args, **kwargs)
 
         self._abi = abi
 
