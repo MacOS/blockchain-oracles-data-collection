@@ -10,11 +10,10 @@ class _Oracle(object):
             topics (string): An identifier for a topic.
             web_socket (sting): The websocket to be used. It has to start with wss:://some.web.socket 
     """
-    def __init__(self, public_address, private_address, smart_contract_address, topics, web_socket):
+    def __init__(self, public_address, private_address, smart_contract_address, web_socket):
         self._public_address = public_address
         self._public_address = private_address
         self._smart_contract_address = smart_contract_address
-        self._topics = topics
         self._web_socket = web_socket
 
         self.web_socket = self.connect_to_websocket()
@@ -38,7 +37,7 @@ class _EventListeningOracle(_Oracle):
             filter (string): An identifier for the topic to be listend to.
     """
     def __init__(self, filter, *args, **kwargs):
-        super(self, EventListeningOracle).__init__(args, kwargs)
+        super(_EventListeningOracle, self).__init__(args, kwargs)
 
         self._filter = filter
 
@@ -69,7 +68,7 @@ class _TransactionSendingOracle(_Oracle):
             abi (string): The application binary interface (ABI) of a smart contract.
     """
     def __init__(self, abi, *args, **kwargs):
-        super(self, TransactionSendingOracle).__init__(args, kwargs)
+        super(_TransactionSendingOracle, self).__init__(args, kwargs)
 
         self._abi = abi
 
