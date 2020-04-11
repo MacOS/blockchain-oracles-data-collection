@@ -61,7 +61,7 @@ class _EventListeningOracle(_Oracle):
         raise NotImplementedError("process_new_event is not implemented")
 
 
-class _TransactionSendingOracle(Oracle):
+class _TransactionSendingOracle(_Oracle):
     r"""
         _TransactionSendingOracle is the base class for all oracles that have to send a transaction.
 
