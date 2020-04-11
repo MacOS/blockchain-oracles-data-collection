@@ -107,7 +107,13 @@ class _TransactionSendingOracle(Oracle):
                 state (dic): The state to be inserted into the blockchain.
                 estimated_das (int): The estimated gas of the transaction.
         """
-        raise NotImplementedError("assemble transaction not implemented")
+        return {
+            'nonce': f'{web3.Web3.toHex(self.get_nonce())}',
+            'gasPrice': f'{web3.Web3.toHex(self._web_socket.eth.gasPrice)',
+            'gas': f'{web.Web3.toHex(estimated_gas)}',
+            'to': f'{web3.Web3.toChecksumAddress(self._smart_contract_address',
+            'data': f'{self.encoded_abi}'
+        }
 
     def sign_transaction(self, transaction):
         r"""
