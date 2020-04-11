@@ -12,10 +12,10 @@
     Author: Stefan Bachhofner
 '''
 
-from .utils import Oracle
+from .utils import _Oracle
 
 
-class PullOutboundOracle(Oracle):
+class PullOutboundOracle(_Oracle):
 
     def __init__(self):
         super(self, PullOutboundOracle).__init__()
