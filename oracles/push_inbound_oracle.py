@@ -27,7 +27,7 @@ class ArrivalState(PushInboundOracle):
         self.arrival = arrival
         self.encoded_abi = self.encode_abi_arrival()
 
-    def encode_abi_arrival(self)
+    def encode_abi_arrival(self):
         return self.smart_contract.encodeABI(
             fn_name="setArrival",
             args=[self.arrival["order"], self.arrival["location"], int(self.arrival["timestamp"])])
