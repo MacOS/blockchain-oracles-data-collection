@@ -12,7 +12,7 @@
     Author: Stefan Bachhofner
 '''
 
-from utils import Oracle
+from .utils import Oracle
 
 
 class PullOutboundOracle(Oracle):

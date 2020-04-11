@@ -12,7 +12,7 @@
     Author: Stefan Bachhofner
 '''
 
-from utils import _EventListeningOracle
+from .utils import _EventListeningOracle
 
 
 class PushOutboundOracle(_EventListeningOracle):

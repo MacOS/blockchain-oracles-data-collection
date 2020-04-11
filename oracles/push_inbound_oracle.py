@@ -12,7 +12,7 @@
     Author: Stefan Bachhofner
 '''
 
-from utils import _TransactionSendingOracle
+from .utils import _TransactionSendingOracle
 
 
 class PushInboundOracle(_TransactionSendingOracle):

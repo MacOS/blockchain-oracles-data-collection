@@ -12,7 +12,7 @@
     Author: Stefan Bachhofner
 '''
 
-from utils import _EventListeningOracle, _TransactionSendingOracle
+from .utils import _EventListeningOracle, _TransactionSendingOracle
 
 
 class PullInboundOracle(_EventListeningOracle, _TransactionSendingOracle):
