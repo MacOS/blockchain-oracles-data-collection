@@ -30,7 +30,7 @@ class _Oracle(object):
             raise Exception("Not Connected to Websocket!")
 
 
-class _EventListeningOracle(Oracle):
+class _EventListeningOracle(_Oracle):
     r"""
         _EventListeningOracle is the base class for all oracles that have to listen to events.
 
