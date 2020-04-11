@@ -20,7 +20,20 @@ class PushInboundOracle(_TransactionSendingOracle):
     def __init__(self, *args, **kwargs):
         super(self, PushInboundOracle).__init__(args, kwargs)
 
- 
+
+class ArrivalState(PushInboundOracle):
+
+    def __init__(self, arrival):
+        self.arrival = arrival
+        self.encoded_abi = self.encode_abi_arrival()
+
+    def encode_abi_arrival(self)
+        return self.smart_contract.encodeABI(
+            fn_name="setArrival",
+            args=[self.arrival["order"], self.arrival["location"], int(self.arrival["timestamp"])])
+
+
+
  
 def main():
     return 0
