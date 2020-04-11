@@ -18,7 +18,7 @@ from .utils import _EventListeningOracle, _TransactionSendingOracle
 class PullInboundOracle(_EventListeningOracle, _TransactionSendingOracle):
 
     def __init__(self):
-        super(self, PullInboundOracle).__init__()
+        super(PullInboundOracle, self).__init__()
 
 
 def main():

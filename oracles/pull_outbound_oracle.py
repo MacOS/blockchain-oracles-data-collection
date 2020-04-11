@@ -18,7 +18,7 @@ from .utils import _Oracle
 class PullOutboundOracle(_Oracle):
 
     def __init__(self):
-        super(self, PullOutboundOracle).__init__()
+        super(PullOutboundOracle self).__init__()
 
 
 def main():
