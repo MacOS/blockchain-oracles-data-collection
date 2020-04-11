@@ -75,7 +75,7 @@ class _TransactionSendingOracle(_Oracle):
         self._smart_contract = self.get_smart_contract()
 
     def get_smart_contract(self):
-        return self._web_socket.eth.contract(
+        return self.web_socket.eth.contract(
             address= web3.Web3.toChecksumAddress(self._smart_contract_address),
             abi=self._abi
         )
