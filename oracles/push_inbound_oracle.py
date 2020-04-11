@@ -23,7 +23,9 @@ class PushInboundOracle(_TransactionSendingOracle):
 
 class ArrivalState(PushInboundOracle):
 
-    def __init__(self, arrival):
+    def __init__(self, arrival, *arg, **kwargs):
+        super(ArrivalState, self).__init__(*arg, **kwargs)
+
         self.arrival = arrival
         self.encoded_abi = self.encode_abi_arrival()
 
