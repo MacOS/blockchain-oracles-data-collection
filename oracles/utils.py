@@ -133,3 +133,73 @@ def save_to_mongo(db, collection, document):
     my_collection = my_db[collection]
     result = my_collection.insert_one(document)
     print(result)
+
+
+class RandomArrivalGenerator(object):
+
+    def __init__(self):
+        self.order_sample_space = [
+            "iPhone 11 Pro",
+            "iPhone 11",
+            "iPhone XR",
+            "iPhone 8",
+            "Samsung Galaxy S10",
+            "Samsung Galaxy S10e",
+            "Samsung Galaxy S10+",
+            "Samsung Galaxy Note10",
+            "Samsung Galaxy Note10+",
+            "Samsung Galaxy A90 5G",
+            "Samsung Galaxy A80 5G",
+            "Samsung Galaxy A70 5G",
+            "Motorola Moto G7 Plus",
+            "Motorola Moto G7",
+            "Motorola Moto G7 Power"
+        ]
+
+        self.location_sample_space = [
+            "Vienna",
+            "Minsk",
+            "Brussels",
+            "Sarajevo",
+            "Sofia",
+            "Zagreb",
+            "Nicosia",
+            "Prague",
+            "Tallinn",
+            "Helsinki",
+            "Paris",
+            "Tbilsi",
+            "Berlin",
+            "Athens",
+            "Budapest",
+            "Reykjavik",
+            "Dublin",
+            "Rome",
+            "Pristina",
+            "Riga",
+            "Vaduz",
+            "Vilnius",
+            "Luxembourg",
+            "Valletta",
+            "Amsterdam",
+            "Skopje",
+            "Oslo",
+            "Warsaw",
+            "Lisbon",
+            "Bucharest",
+            "Moscow",
+            "Belgrade",
+            "Bratislava",
+            "Ljubljana",
+            "Madrid",
+            "Stockholm",
+            "Bern",
+            "London"
+        ]
+
+    def get_random_arrival(self):
+        return  Arrival(
+            order = np.random.choice(self.order_sample_space, size=1)[0],
+            location = np.random.choice(self.location_sample_space, size=1)[0],
+            timesamp = get_unix_timestamp()
+        )
