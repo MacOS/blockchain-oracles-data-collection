@@ -1,4 +1,5 @@
 import web3
+import pymongo
 
 
 class _Oracle(object):
@@ -124,3 +125,11 @@ class _TransactionSendingOracle(_Oracle):
         """
         return self.web_socket.eth.account.sign_transaction(
             transaction, self._private_address)
+
+
+def save_to_mongo(db, collection, document):
+    my_client = pymongo.MongoClient("mongodb://localhost:27017/")
+    my_db = my_client[db]
+    my_collection = my_db[collection]
+    result = my_collection.insert_one(document)
+    print(result)
