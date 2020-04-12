@@ -43,7 +43,7 @@ class _EventListeningOracle(_Oracle):
 
         self.subscribed_filter = self.subscribe_to_filter(filter)
 
-    def subscribe_to_filters(self, filter):
+    def subscribe_to_filter(self, filter):
         return self.web_socket.eth.eth_subscribe({
             "address": web3.Web3.toChecksumAddress(self._smart_contract_address),
             "topics": [self.web_socket.keccak(text=filter).hex()]
