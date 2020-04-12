@@ -1,3 +1,5 @@
+import datetime
+
 import web3
 import pymongo
 
@@ -203,3 +205,11 @@ class RandomArrivalGenerator(object):
             location = np.random.choice(self.location_sample_space, size=1)[0],
             timesamp = get_unix_timestamp()
         )
+
+
+def get_unix_timestamp():
+    return datetime.datetime.now().timestamp()
+
+
+def convert_unix_timesamp_to_datetime(unix_timesamp):
+    return datetime.datetime.fromtimestamp(unix_timesamp)
