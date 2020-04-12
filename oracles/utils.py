@@ -88,7 +88,11 @@ class _TransactionSendingOracle(_Oracle):
             web3.Web3.toChecksumAddress(self._public_address))
 
     def send_raw_transaction(self, state):
-        raise NotImplementedError("send raw transaction not implemented")
+        estimated_gas = self.estimate_gas(state)
+        transaction = self.assemble_transaction(state, estimated_gas)
+        signed_transaction = self.sign_transaction(transaction)
+        return self.web_socket.eth.sendRawTransaction(
+            signed_transaction.rawTransaction)
 
     def estimate_gas(self, state):
         return self._web_socket.eth.estimateGas({
