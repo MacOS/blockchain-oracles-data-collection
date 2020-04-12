@@ -12,7 +12,7 @@ class _Oracle(object):
     """
     def __init__(self, public_address, private_address, smart_contract_address, web_socket):
         self._public_address = public_address
-        self._public_address = private_address
+        self._private_address = private_address
         self._smart_contract_address = smart_contract_address
         self._web_socket = web_socket
 
