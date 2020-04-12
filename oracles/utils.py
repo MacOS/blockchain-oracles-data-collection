@@ -84,7 +84,7 @@ class _TransactionSendingOracle(_Oracle):
         r"""
             Returns the nonce of the account _public_address.
         """
-        return self._web_socket.eth.getTransactionCount(
+        return self.web_socket.eth.getTransactionCount(
             web3.Web3.toChecksumAddress(self._public_address))
 
     def send_raw_transaction(self):
@@ -95,9 +95,9 @@ class _TransactionSendingOracle(_Oracle):
             signed_transaction.rawTransaction)
 
     def estimate_gas(self, state):
-        return self._web_socket.eth.estimateGas({
-            'from': web3.Web3.toChecksumAddress(self.public_key),
-            'to': web3.Web3.toChecksumAddress(self.smart_contract_address),
+        return self.web_socket.eth.estimateGas({
+            'from': web3.Web3.toChecksumAddress(self._public_address),
+            'to': web3.Web3.toChecksumAddress(self._smart_contract_address),
             'data': self.encoded_abi
         })
 
@@ -112,8 +112,8 @@ class _TransactionSendingOracle(_Oracle):
         """
         return {
             'nonce': f'{web3.Web3.toHex(self.get_nonce())}',
-            'gasPrice': f'{web3.Web3.toHex(self._web_socket.eth.gasPrice)}',
-            'gas': f'{web.Web3.toHex(estimated_gas)}',
+            'gasPrice': f'{web3.Web3.toHex(self.web_socket.eth.gasPrice)}',
+            'gas': f'{web3.Web3.toHex(estimated_gas)}',
             'to': f'{web3.Web3.toChecksumAddress(self._smart_contract_address)}',
             'data': f'{self.encoded_abi}'
         }
@@ -122,5 +122,5 @@ class _TransactionSendingOracle(_Oracle):
         r"""
             Signs a transaction with the private_key.
         """
-        return self._web_socket.eth.account.sign_transaction(
-            transaction, self._private_key)
+        return self.web_socket.eth.account.sign_transaction(
+            transaction, self._private_address)
