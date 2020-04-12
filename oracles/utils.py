@@ -87,9 +87,9 @@ class _TransactionSendingOracle(_Oracle):
         return self._web_socket.eth.getTransactionCount(
             web3.Web3.toChecksumAddress(self._public_address))
 
-    def send_raw_transaction(self, state):
-        estimated_gas = self.estimate_gas(state)
-        transaction = self.assemble_transaction(state, estimated_gas)
+    def send_raw_transaction(self):
+        estimated_gas = self.estimate_gas(self.state)
+        transaction = self.assemble_transaction(self.state, estimated_gas)
         signed_transaction = self.sign_transaction(transaction)
         return self.web_socket.eth.sendRawTransaction(
             signed_transaction.rawTransaction)
