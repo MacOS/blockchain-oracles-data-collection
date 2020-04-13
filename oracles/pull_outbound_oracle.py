@@ -17,8 +17,13 @@ from .utils import _Oracle
 
 class PullOutboundOracle(_Oracle):
 
-    def __init__(self):
-        super(PullOutboundOracle self).__init__()
+    def __init__(self, *args, **kwargs):
+        super(PullOutboundOracle, self).__init__(*args, **kwargs)
+
+    def retrieve_state_from_transaction_hash(self, transaction_hash):
+        transaction = self._web_socket.eth.getTransaction(transaction_hash)
+        retrieved_state = self._smart_contract.decode_function_input(transaction.input)
+        return retrieved_state
 
 
 def main():
