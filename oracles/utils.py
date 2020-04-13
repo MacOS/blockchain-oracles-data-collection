@@ -21,6 +21,7 @@ class _Oracle(object):
         self._web_socket = web_socket
 
         self.web_socket = self.connect_to_websocket()
+        self._smart_contract = self.get_smart_contract()
 
     def connect_to_websocket(self):
         web_socket = web3.Web3(
@@ -31,6 +32,11 @@ class _Oracle(object):
             return web_socket
         else:
             raise Exception("Not Connected to Websocket!")
+
+    def get_smart_contract(self):
+        return self.web_socket.eth.contract(
+            address= web3.Web3.toChecksumAddress(self._smart_contract_address),
+            abi=self._abi)
 
 
 class _EventListeningOracle(_Oracle):
@@ -76,15 +82,7 @@ class _TransactionSendingOracle(_Oracle):
 
         self._abi = abi
 
-        self._smart_contract = self.get_smart_contract()
-
         self.ESTIMATED_GAS_MULTIPLIER = 1.2
-
-    def get_smart_contract(self):
-        return self.web_socket.eth.contract(
-            address= web3.Web3.toChecksumAddress(self._smart_contract_address),
-            abi=self._abi
-        )
 
     def get_nonce(self):
         r"""
