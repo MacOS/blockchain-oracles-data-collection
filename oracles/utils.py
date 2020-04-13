@@ -1,5 +1,6 @@
 import datetime
 
+import numpy as np
 import web3
 import pymongo
 
@@ -77,6 +78,8 @@ class _TransactionSendingOracle(_Oracle):
 
         self._smart_contract = self.get_smart_contract()
 
+        self.ESTIMATED_GAS_MULTIPLIER = 1.2
+
     def get_smart_contract(self):
         return self.web_socket.eth.contract(
             address= web3.Web3.toChecksumAddress(self._smart_contract_address),
@@ -98,11 +101,10 @@ class _TransactionSendingOracle(_Oracle):
             signed_transaction.rawTransaction)
 
     def estimate_gas(self, state):
-        return self.web_socket.eth.estimateGas({
+        return int(self.web_socket.eth.estimateGas({
             'from': web3.Web3.toChecksumAddress(self._public_address),
             'to': web3.Web3.toChecksumAddress(self._smart_contract_address),
-            'data': self.encoded_abi
-        })
+            'data': self.encoded_abi}) * self.ESTIMATED_GAS_MULTIPLIER)
 
     def assemble_transaction(self, state, estimated_gas):
         r"""
@@ -131,10 +133,9 @@ class _TransactionSendingOracle(_Oracle):
 
 def save_to_mongo(db, collection, document):
     my_client = pymongo.MongoClient("mongodb://localhost:27017/")
-    my_db = my_client[db]
-    my_collection = my_db[collection]
-    result = my_collection.insert_one(document)
-    print(result)
+    my_db = my_client.db
+    my_collection = my_db.collection
+    return my_collection.insert_one(document).inserted_id
 
 
 class RandomArrivalGenerator(object):
@@ -200,11 +201,11 @@ class RandomArrivalGenerator(object):
         ]
 
     def get_random_arrival(self):
-        return  Arrival(
-            order = np.random.choice(self.order_sample_space, size=1)[0],
-            location = np.random.choice(self.location_sample_space, size=1)[0],
-            timesamp = get_unix_timestamp()
-        )
+        return  {
+            "order": np.random.choice(self.order_sample_space, size=1)[0],
+            "location": np.random.choice(self.location_sample_space, size=1)[0],
+            "timestamp": get_unix_timestamp()
+        }
 
 
 def get_unix_timestamp():
