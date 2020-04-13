@@ -12,7 +12,10 @@
     Author: Stefan Bachhofner
 '''
 
-from .utils import _TransactionSendingOracle
+import web3
+
+from utils import _TransactionSendingOracle, RandomArrivalGenerator, save_to_mongo, get_unix_timestamp, convert_unix_timesamp_to_datetime
+import config
 
 
 class PushInboundOracle(_TransactionSendingOracle):
@@ -35,9 +38,37 @@ class ArrivalState(PushInboundOracle):
             args=[self.state["order"], self.state["location"], int(self.state["timestamp"])])
 
 
+def execute_push_inbound_oracle():
+    random_arrival_state = RandomArrivalGenerator().get_random_arrival()
+    
+    push_inbound_oracle = ArrivalState(
+        public_address=config.PUBLIC_ADDRESS,
+        private_address=config.PRIVATE_ADDRESS,
+        smart_contract_address=config.ARRIVAL_SMART_CONTRACT_ADDRESS,
+        web_socket=config.WEB_SOCKET,
+        abi=config.ARRIVAL_ABI,
+        arrival=random_arrival_state)
+
+    transaction_hash = web3.eth.to_hex(
+        push_inbound_oracle.send_raw_transaction())
+    transaction_hash_timestamp = get_unix_timestamp()
+
+    save_to_mongo(
+        db="pushInboundOracle", collection="arrival",
+        document={
+            "transaction_hash": transaction_hash, "transaction_hash_timestamp": transaction_hash_timestamp,
+            "document": push_inbound_oracle.state})
+
+    return transaction_hash, push_inbound_oracle.state
+
+
+def push_inbound_oracle():
+    transaction_hash, state = execute_push_inbound_oracle()
+    print(f"Timestamp: {convert_unix_timesamp_to_datetime(get_unix_timestamp())} Transaction hash: {transaction_hash} | State: {state}")
 
  
 def main():
+    push_inbound_oracle()
     return 0
 
 
