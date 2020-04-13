@@ -17,8 +17,8 @@ from .utils import _EventListeningOracle
 
 class PushOutboundOracle(_EventListeningOracle):
 
-    def __init__(self):
-        super(PushOutboundOracle, self).__init__()
+    def __init__(self, *args, **kwargs):
+        super(PushOutboundOracle, self).__init__(*args, **kwargs)
 
 
 def main():
