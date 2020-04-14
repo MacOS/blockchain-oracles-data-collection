@@ -1,4 +1,5 @@
 import datetime
+import time
 
 import numpy as np
 import web3
@@ -48,16 +49,17 @@ class _EventListeningOracle(_Oracle):
             filter (string): An identifier for the topic to be listend to.
     """
     def __init__(self, filter, *args, **kwargs):
-        super(_EventListeningOracle, self).__init__(args, kwargs)
+        super(_EventListeningOracle, self).__init__(*args, **kwargs)
 
         self._filter = filter
 
-        self.subscribed_filter = self.subscribe_to_filter(filter)
+        self.eth_filter = self.subscribe_to_filter(filter)
 
     def subscribe_to_filter(self, filter):
-        return self.web_socket.eth.eth_subscribe({
+        return self.web_socket.eth.filter({
             "address": web3.Web3.toChecksumAddress(self._smart_contract_address),
-            "topics": [self.web_socket.keccak(text=filter).hex()]
+            "topics": [filter]
+            #"topics": [self.web_socket.keccak(text=filter).hex()]
         })
 
     def listen_to_filter(self):
