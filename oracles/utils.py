@@ -14,10 +14,11 @@ class _Oracle(object):
             topics (string): An identifier for a topic.
             web_socket (sting): The websocket to be used. It has to start with wss:://some.web.socket 
     """
-    def __init__(self, public_address, private_address, smart_contract_address, web_socket):
+    def __init__(self, public_address, private_address, abi, smart_contract_address, web_socket):
         self._public_address = public_address
         self._private_address = private_address
         self._smart_contract_address = smart_contract_address
+        self._abi = abi
         self._web_socket = web_socket
 
         self.web_socket = self.connect_to_websocket()
@@ -77,10 +78,8 @@ class _TransactionSendingOracle(_Oracle):
         Args:
             abi (string): The application binary interface (ABI) of a smart contract.
     """
-    def __init__(self, abi, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(_TransactionSendingOracle, self).__init__(*args, **kwargs)
-
-        self._abi = abi
 
         self.ESTIMATED_GAS_MULTIPLIER = 1.2
 
@@ -131,8 +130,8 @@ class _TransactionSendingOracle(_Oracle):
 
 def save_to_mongo(db, collection, document):
     my_client = pymongo.MongoClient("mongodb://localhost:27017/")
-    my_db = my_client.db
-    my_collection = my_db.collection
+    my_db = my_client[db]
+    my_collection = my_db[collection]
     return my_collection.insert_one(document).inserted_id
 
 
