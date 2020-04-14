@@ -12,7 +12,7 @@
     Author: Stefan Bachhofner
 '''
 
-from utils import _Oracle
+from utils import _Oracle, get_unix_timestamp, save_to_mongo
 import config
 
 
@@ -34,8 +34,19 @@ def main():
         web_socket=config.WEB_SOCKET,
         abi=config.ARRIVAL_ABI)
 
+    start_timestamp = get_unix_timestamp()
+
     retrieved_state = pull_outbound_oracle.retrieve_state_from_transaction_hash(
         transaction_hash="0xf15753a9ef3d83e6d9974a936795039605449cdf2530545c8b339deaa6a7641f")
+
+    end_timestamp = get_unix_timestamp()
+
+    save_to_mongo(
+        db="pullOutboundOracle", collection="arrival", 
+        document={
+            "start_timestamp": start_timestamp, "end_timestamp": end_timestamp,
+            "transaction_hash": "0xf15753a9ef3d83e6d9974a936795039605449cdf2530545c8b339deaa6a7641f",
+            "state": retrieved_state[1]})
 
     print(retrieved_state)
     return 0
