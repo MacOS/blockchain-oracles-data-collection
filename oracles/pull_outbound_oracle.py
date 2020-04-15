@@ -55,7 +55,7 @@ def execute_pull_outbound_oracle():
 
 def main():
     scheduler = BlockingScheduler()
-    scheduler.add_job(execute_pull_outbound_oracle, "intervall", minutes=15)
+    scheduler.add_job(execute_pull_outbound_oracle, "interval", minutes=15)
     scheduler.start()
     return 0
 

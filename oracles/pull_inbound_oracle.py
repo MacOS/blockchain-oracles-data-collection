@@ -146,7 +146,7 @@ def execute_pull_inbound_oracle():
 
 def main():
     scheduler = BackgroundScheduler()
-    scheduler.add_job(execute_push_inbound_oracle, "intervall", minutes=15)
+    scheduler.add_job(execute_push_inbound_oracle, "interval", minutes=15)
     scheduler.start()
 
     execute_push_inbound_oracle()
