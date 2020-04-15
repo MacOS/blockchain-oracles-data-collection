@@ -74,7 +74,7 @@ def push_inbound_oracle():
  
 def main():
     scheduler = BlockingScheduler()
-    scheduler.add_job(push_inbound_oracle, "interval", minutes=30)
+    scheduler.add_job(push_inbound_oracle, "interval", minutes=15)
     scheduler.start()
     return 0
 
