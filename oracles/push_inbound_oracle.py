@@ -13,6 +13,7 @@
 '''
 
 import web3
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 from utils import _TransactionSendingOracle, RandomArrivalGenerator, save_to_mongo, get_unix_timestamp, convert_unix_timesamp_to_datetime
 import config
@@ -72,7 +73,9 @@ def push_inbound_oracle():
 
  
 def main():
-    push_inbound_oracle()
+    scheduler = BlockingScheduler()
+    scheduler.add_job(push_inbound_oracle, "interval", minutes=30)
+    scheduler.start()
     return 0
 
 
