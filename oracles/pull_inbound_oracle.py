@@ -16,6 +16,7 @@ import time
 
 import numpy as np
 import web3
+from apscheduler.schedulers.background import BackgroundScheduler
 
 from push_inbound_oracle import PushInboundOracle
 from utils import _EventListeningOracle, _TransactionSendingOracle, get_unix_timestamp, convert_unix_timesamp_to_datetime, save_to_mongo
@@ -142,12 +143,11 @@ def execute_pull_inbound_oracle():
 
 
 def main():
-    worker = Process(target=execute_pull_inbound_oracle, daemon=True)
-    worker.start()
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(execute_push_inbound_oracle, "intervall", minutes=15)
+    scheduler.start()
 
     execute_push_inbound_oracle()
-
-    time.sleep(120)
 
     return 0
 
