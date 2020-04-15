@@ -78,6 +78,8 @@ class OrderState(PullInboundOracle):
                 "order": self.state, "order_start_timestamp": start_timestamp, "order_end_timestamp": end_timestamp,
                 "verify_customer": new_event, "verify_customer_received_timestamp": verify_customer_received_timestamp})
 
+        print(f'(Order) Timestamp: {convert_unix_timesamp_to_datetime(get_unix_timestamp())} | Transaction hash: {transaction_hash} |')
+
 
 class RandomVerifyCustomerGenerator(object):
 
@@ -128,7 +130,7 @@ def execute_push_inbound_oracle():
             "start_timestamp": start_timestamp, "end_timestamp": end_timestamp,
             "document": random_verify_customer_state})
 
-    print(f'Timestamp: {convert_unix_timesamp_to_datetime(get_unix_timestamp())} | Transaction hash: {transaction_hash} |'\
+    print(f'(Verify Customer) Timestamp: {convert_unix_timesamp_to_datetime(get_unix_timestamp())} | Transaction hash: {transaction_hash} |'\
           f'Verify Customer: {random_verify_customer_state}')
 
 
