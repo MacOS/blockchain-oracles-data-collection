@@ -12,6 +12,8 @@
     Author: Stefan Bachhofner
 '''
 
+from apscheduler.schedulers.blocking import BlockingScheduler
+
 from utils import _Oracle, get_unix_timestamp, save_to_mongo
 import config
 
@@ -27,7 +29,7 @@ class PullOutboundOracle(_Oracle):
         return retrieved_state
 
 
-def main():
+def execute_pull_outbound_oracle():
     pull_outbound_oracle = PullOutboundOracle(
         public_address=config.PUBLIC_ADDRESS, private_address=config.PRIVATE_ADDRESS,
         smart_contract_address=config.ARRIVAL_SMART_CONTRACT_ADDRESS,
@@ -49,6 +51,12 @@ def main():
             "state": retrieved_state[1]})
 
     print(retrieved_state)
+
+
+def main():
+    scheduler = BlockingScheduler()
+    scheduler.add_job(execute_pull_outbound_oracle, "intervall", minutes=15)
+    scheduler.start()
     return 0
 
 
