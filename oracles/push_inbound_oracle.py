@@ -49,14 +49,18 @@ def execute_push_inbound_oracle():
         abi=config.ARRIVAL_ABI,
         arrival=random_arrival_state)
 
+    start_timestamp = get_unix_timestamp()
+    
     transaction_hash = web3.eth.to_hex(
         push_inbound_oracle.send_raw_transaction())
-    transaction_hash_timestamp = get_unix_timestamp()
+    
+    end_timestamp = get_unix_timestamp()
 
     save_to_mongo(
         db="pushInboundOracle", collection="arrival",
         document={
-            "transaction_hash": transaction_hash, "transaction_hash_timestamp": transaction_hash_timestamp,
+            "transaction_hash": transaction_hash, 
+            "start_timestamp": start_timestamp, "end_timestamp": end_timestamp,
             "document": push_inbound_oracle.state})
 
     return transaction_hash, push_inbound_oracle.state
