@@ -149,7 +149,7 @@ def main():
     scheduler.add_job(execute_push_inbound_oracle, "interval", minutes=15)
     scheduler.start()
 
-    execute_push_inbound_oracle()
+    execute_pull_inbound_oracle()
 
     return 0
 
