@@ -14,7 +14,7 @@ def make_daily_mongo_back_up():
 
 def back_up_mongo(
         file_name=f'{datetime.datetime.now().date():%Y_%m_%d}_mongo_backUp',
-        file_path='/home/wucloud'):
+        file_path='/home/wucloud/Dev/BackUp/'):
     r""" Makes a complete backup from MongoDB using the mongodump command line
     program.
     
