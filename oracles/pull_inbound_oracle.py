@@ -112,8 +112,8 @@ def execute_push_inbound_oracle():
 
     push_inbound_oracle = VerifyCustomerState(
         verify_customer=random_verify_customer_state,
-        public_address=config.PUBLIC_ADDRESS, private_address=config.PRIVATE_ADDRESS,
-        smart_contract_address=config.CUSTOMER_SMART_CONTRACT_ADDRESS, abi=config.CUSTOMER_ABI,
+        public_address=config.CUSTOMER_PUBLIC_KEY, private_address=config.CUSTOMER_PRIVATE_KEY,
+        smart_contract_address=config.CUSTOMER_SMART_CONTRACT_ADDRESS_TWO, abi=config.CUSTOMER_ABI,
         web_socket=config.WEB_SOCKET)
 
     start_timestamp = get_unix_timestamp()
@@ -137,8 +137,8 @@ def execute_push_inbound_oracle():
 def execute_pull_inbound_oracle():
     pull_inbound_oracle = OrderState(
         filter=config.CUSTOMER_TOPIC_ADDRESS_VERIFY_CUSTOMER,
-        public_address=config.PUBLIC_ADDRESS, private_address=config.PRIVATE_ADDRESS,
-        smart_contract_address=config.CUSTOMER_SMART_CONTRACT_ADDRESS, abi=config.CUSTOMER_ABI,
+        public_address=config.CUSTOMER_PUBLIC_KEY, private_address=config.CUSTOMER_PRIVATE_KEY,
+        smart_contract_address=config.CUSTOMER_SMART_CONTRACT_ADDRESS_TWO, abi=config.CUSTOMER_ABI,
         web_socket=config.WEB_SOCKET)
 
     pull_inbound_oracle.listen_to_filter()
