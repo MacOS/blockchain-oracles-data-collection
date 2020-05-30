@@ -15,7 +15,13 @@
 import web3
 from apscheduler.schedulers.blocking import BlockingScheduler
 
-from utils import _TransactionSendingOracle, RandomArrivalGenerator, save_to_mongo, get_unix_timestamp, convert_unix_timesamp_to_datetime
+from utils import (
+	_TransactionSendingOracle,
+	RandomArrivalGenerator,
+	save_to_mongo,
+	get_unix_timestamp,
+	convert_unix_timesamp_to_datetime)
+
 import config
 
 
