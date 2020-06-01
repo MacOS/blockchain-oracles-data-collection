@@ -107,6 +107,8 @@ class _TransactionSendingOracle(_Oracle):
             web3.Web3.toChecksumAddress(self._public_address))
 
     def send_raw_transaction(self):
+        r"""Sends a state to the specified smart contract via a transaction.
+        """
         estimated_gas = self.estimate_gas(self.state)
         transaction = self.assemble_transaction(self.state, estimated_gas)
         signed_transaction = self.sign_transaction(transaction)
