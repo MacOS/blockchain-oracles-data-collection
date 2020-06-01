@@ -17,7 +17,7 @@ class _Oracle(object):
 			private_address (string): The private key of an account.
 			abi (string): The application binary interface (abi) for the provided <smart_contract_address>
             smart_contract_address (string): An identifier for a smart contract.
-			web_socket (sting): The websocket to be used. It has to start with wss:://some.web.socket 
+			web_socket (sting): The websocket of a blockchain node. It has to start with wss:://some.web.socket 
     """
     def __init__(self, public_address, private_address, abi, smart_contract_address, web_socket):
         self._public_address = public_address
@@ -30,7 +30,9 @@ class _Oracle(object):
         self._smart_contract = self.get_smart_contract()
 
     def connect_to_websocket(self):
-        web_socket = web3.Web3(
+        r"""Connects to the provided websocket. Raises an exception if a connection failed.
+		"""
+		web_socket = web3.Web3(
             web3.WebsocketProvider(self._web_socket))
 
         if web_socket.isConnected():
