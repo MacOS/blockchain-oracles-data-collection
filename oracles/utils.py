@@ -151,6 +151,9 @@ class _TransactionSendingOracle(_Oracle):
 
 
 def save_to_mongo(db, collection, document):
+    r"""Helper function to persistently save documents. This is used to save catched events, generated
+    states and the like.
+    """
     my_client = pymongo.MongoClient("mongodb://localhost:27017/")
     my_db = my_client[db]
     my_collection = my_db[collection]
