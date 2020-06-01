@@ -6,11 +6,21 @@ Conference on Business Process Management. **This paper is currently under revie
 # Directory Explanations
 [evaluation](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/evaluation)
 
+Contains the python and R code that was used to analyse the collected data on the proposed oracles.
+
 [oracles](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/oracles)
+
+Contains the python code for the proposed oracles. In other words, the code in this direcotry
+is one particular instantiation of the proposed oracle patterns, and are therefore by no means the only way how they
+can be implemented.
 
 [solidity](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/solidity)
 
+Contains the solidity code for the two smart contracts arrival and customer.
+
 [test](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/test)
+
+Contains some tests for the code in _oracles_ directory.
 
 
 # Authors
