@@ -1,7 +1,4 @@
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set noexpandtab
+autocmd FileType python set tabstop=8|set softtabstop=4|set shiftwidth=4| set expandtab
 
 set colorcolumn=110
 highlight ColorColumn ctermbg=darkgray
