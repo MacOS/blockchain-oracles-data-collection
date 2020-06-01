@@ -1,3 +1,6 @@
+r"""this file contains the logic that is either separated out of the oracles (i.e. separation of concerns), 
+and helper functions.
+"""
 import datetime
 import time
 
