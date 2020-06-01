@@ -3,13 +3,16 @@
     
     Mühlberger, R. (2019). Integration of the real world to the blockchain via in-bound and outbound oracles (Unpublished Master thesis).
     Department of Information Systems and Operations, Vienna University of Economics and Business, Vienna, Austria.
-    
-    for evalution purposes.
+
+	for evalution purposes in the following submitted (not yet peer reviewed!) paper
+
+	Mühlberger, R., Di Ciccio, C., Castello Ferrer, E., Bachhofner, S., and Weber, I. (2020) Foundational
+	Oracle Patterns. Business Process Management: Blockchain Forum.
 
     A push in-bound oracle is a software artifact that writes data to the blockchain (in-bound) triggered
     by an off-chain event (push).
 
-    Author: Stefan Bachhofner
+    Author: Stefan Bachhofner, Roman Mühlberger
 '''
 
 import web3
