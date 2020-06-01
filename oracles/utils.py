@@ -11,9 +11,11 @@ class _Oracle(object):
         _Oracle is the base class for all oracles.
 
         Args:
+			public_address (string): The public key of an account.
+			private_address (string): The private key of an account.
+			abi (string): The application binary interface (abi) for the provided <smart_contract_address>
             smart_contract_address (string): An identifier for a smart contract.
-            topics (string): An identifier for a topic.
-            web_socket (sting): The websocket to be used. It has to start with wss:://some.web.socket 
+			web_socket (sting): The websocket to be used. It has to start with wss:://some.web.socket 
     """
     def __init__(self, public_address, private_address, abi, smart_contract_address, web_socket):
         self._public_address = public_address
