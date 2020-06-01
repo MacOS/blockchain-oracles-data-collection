@@ -32,7 +32,7 @@ class _Oracle(object):
     def connect_to_websocket(self):
         r"""Connects to the provided websocket. Raises an exception if a connection failed.
 	"""
-	web_socket = web3.Web3(
+		web_socket = web3.Web3(
             web3.WebsocketProvider(self._web_socket))
 
         if web_socket.isConnected():
