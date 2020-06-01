@@ -96,7 +96,9 @@ class _TransactionSendingOracle(_Oracle):
     """
     def __init__(self, *args, **kwargs):
         super(_TransactionSendingOracle, self).__init__(*args, **kwargs)
-
+        
+        # This constant is derived from the ethereum developer community and from experience.
+        # Generally, this value can be between 1.2 and 1.5. However, 1.2 worked seamlessly.
         self.ESTIMATED_GAS_MULTIPLIER = 1.2
 
     def get_nonce(self):
@@ -116,6 +118,8 @@ class _TransactionSendingOracle(_Oracle):
             signed_transaction.rawTransaction)
 
     def estimate_gas(self, state):
+        r"""Estimates the amount of gas that is necessary for the transaction to be processed. 
+        """ 
         return int(self.web_socket.eth.estimateGas({
             'from': web3.Web3.toChecksumAddress(self._public_address),
             'to': web3.Web3.toChecksumAddress(self._smart_contract_address),
