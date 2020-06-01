@@ -150,16 +150,6 @@ class _TransactionSendingOracle(_Oracle):
             transaction, self._private_address)
 
 
-def save_to_mongo(db, collection, document):
-    r"""Helper function to persistently save documents. This is used to save catched events, generated
-    states and the like.
-    """
-    my_client = pymongo.MongoClient("mongodb://localhost:27017/")
-    my_db = my_client[db]
-    my_collection = my_db[collection]
-    return my_collection.insert_one(document).inserted_id
-
-
 class RandomArrivalGenerator(object):
     r"""Help class that generates random arrival states.
 
@@ -243,3 +233,13 @@ def convert_unix_timestamp_to_datetime(unix_timestamp):
     r"""A wrapper function to transfrom a unix_timestamp into a dattime object.
     """
     return datetime.datetime.fromtimestamp(unix_timestamp)
+
+
+def save_to_mongo(db, collection, document):
+    r"""Helper function to persistently save documents. This is used to save catched events, generated
+    states and the like.
+    """
+    my_client = pymongo.MongoClient("mongodb://localhost:27017/")
+    my_db = my_client[db]
+    my_collection = my_db[collection]
+    return my_collection.insert_one(document).inserted_id
