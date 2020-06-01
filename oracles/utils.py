@@ -238,6 +238,11 @@ def convert_unix_timestamp_to_datetime(unix_timestamp):
 def save_to_mongo(db, collection, document):
     r"""Helper function to persistently save documents. This is used to save catched events, generated
     states and the like.
+
+    Args:
+        db (string): The database where <document> should be stored.
+        collection (string): The collection within <database> where the <document> should be stored.
+        document (dict): The document as a dict.
     """
     my_client = pymongo.MongoClient("mongodb://localhost:27017/")
     my_db = my_client[db]
