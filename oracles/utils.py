@@ -1,9 +1,11 @@
 import datetime
 import time
 
+
 import numpy as np
 import web3
 import pymongo
+
 
 
 class _Oracle(object):
