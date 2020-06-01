@@ -82,6 +82,8 @@ class _EventListeningOracle(_Oracle):
                 self.process_new_event(event)
 
     def process_new_event(self, new_event):
+        r"""The processing logic for a newly catched event. Child classes have to to implement this method.
+        """
         raise NotImplementedError("process_new_event is not implemented")
 
 
