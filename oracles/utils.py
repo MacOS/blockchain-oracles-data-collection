@@ -239,7 +239,7 @@ def get_unix_timestamp():
     return datetime.datetime.now().timestamp()
 
 
-def convert_unix_timesamp_to_datetime(unix_timesamp):
+def convert_unix_timestamp_to_datetime(unix_timestamp):
     r"""A wrapper function to transfrom a unix_timestamp into a dattime object.
     """
-    return datetime.datetime.fromtimestamp(unix_timesamp)
+    return datetime.datetime.fromtimestamp(unix_timestamp)
