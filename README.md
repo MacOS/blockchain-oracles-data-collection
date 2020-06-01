@@ -1,7 +1,7 @@
 # Foundational Oracle Patterns 
 This GitHub repository contains the code that was used for the paper Roman Mühlberger, Claudio Di Ciccio,
 Eduardo Castello Ferrer, Stefan Bachhofner, and Ingo Weger (2020): Foundational Oracle Patterns. International
-Conference on Business Process Management. <span style="color:red; font-weight:bold">This paper is currently under review!</span>
+Conference on Business Process Management. <span style="color:red;font-weight:bold">This paper is currently under review!</span>
 
 # Directory Explanations
 [evaluation](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/evaluation)
