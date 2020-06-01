@@ -42,7 +42,9 @@ class _Oracle(object):
             raise Exception("Not Connected to Websocket!")
 
     def get_smart_contract(self):
-        return self.web_socket.eth.contract(
+        r"""Resturns the smart contract such that it can be used to interact with.
+		"""
+		return self.web_socket.eth.contract(
             address= web3.Web3.toChecksumAddress(self._smart_contract_address),
             abi=self._abi)
 
