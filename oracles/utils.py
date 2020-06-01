@@ -13,11 +13,11 @@ class _Oracle(object):
         _Oracle is the base class for all oracles.
 
         Args:
-		public_address (string): The public key of an account.
-		private_address (string): The private key of an account.
-		abi (string): The application binary interface (abi) for the provided <smart_contract_address>
-		smart_contract_address (string): An identifier for a smart contract.
-		web_socket (sting): The websocket of a blockchain node. It has to start with wss:://some.web.socket 
+			public_address (string): The public key of an account.
+			private_address (string): The private key of an account.
+			abi (string): The application binary interface (abi) for the provided <smart_contract_address>
+			smart_contract_address (string): An identifier for a smart contract.
+			web_socket (sting): The websocket of a blockchain node. It has to start with wss:://some.web.socket 
     """
     def __init__(self, public_address, private_address, abi, smart_contract_address, web_socket):
         self._public_address = public_address
@@ -31,7 +31,7 @@ class _Oracle(object):
 
     def connect_to_websocket(self):
         r"""Connects to the provided websocket. Raises an exception if a connection failed.
-	"""
+		"""
 		web_socket = web3.Web3(
             web3.WebsocketProvider(self._web_socket))
 
@@ -43,8 +43,8 @@ class _Oracle(object):
 
     def get_smart_contract(self):
         r"""Resturns the smart contract such that it can be used to interact with.
-	"""
-	return self.web_socket.eth.contract(
+		"""
+		return self.web_socket.eth.contract(
             address= web3.Web3.toChecksumAddress(self._smart_contract_address),
             abi=self._abi)
 
@@ -65,13 +65,12 @@ class _EventListeningOracle(_Oracle):
 
     def subscribe_to_filter(self, filter):
         r"""Subscribes to the provider filter. This is used to catch recorded blockchain events as 
-	soon as they occur.
-	"""
-	return self.web_socket.eth.filter({
-            "address": web3.Web3.toChecksumAddress(self._smart_contract_address),
-            "topics": [filter]
-            #"topics": [self.web_socket.keccak(text=filter).hex()]
-        })
+		soon as they occur.
+		"""
+		return self.web_socket.eth.filter({
+			    "address": web3.Web3.toChecksumAddress(self._smart_contract_address),
+				"topics": [filter]
+				})
 
     def listen_to_filter(self):
         print(f"Listening to filter {self._filter} from smart contract {self._smart_contract_address}")
