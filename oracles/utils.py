@@ -64,7 +64,10 @@ class _EventListeningOracle(_Oracle):
         self.eth_filter = self.subscribe_to_filter(filter)
 
     def subscribe_to_filter(self, filter):
-        return self.web_socket.eth.filter({
+        r"""Subscribes to the provider filter. This is used to catch recorded blockchain events as 
+		soon as they occur.
+		"""
+		return self.web_socket.eth.filter({
             "address": web3.Web3.toChecksumAddress(self._smart_contract_address),
             "topics": [filter]
             #"topics": [self.web_socket.keccak(text=filter).hex()]
