@@ -1,3 +1,6 @@
+r"""This file contains constants that are used in the evaluation.
+"""
+
 PUBLIC_ADDRESS = "0x53c5ad7262273711255468cacd8c2f64499e9aea"
 PRIVATE_ADDRESS = "0xcd29914a528e4cb5164dc13c29e15c6e706962ce8d18ad63b53294f488d0f2bb"
 
