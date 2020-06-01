@@ -161,7 +161,10 @@ def save_to_mongo(db, collection, document):
 
 
 class RandomArrivalGenerator(object):
+    r"""Help class that generates random arrival states.
 
+    It is primarely intendet use is for the push inbound oracle.
+    """
     def __init__(self):
         self.order_sample_space = [
             "iPhone 11 Pro",
@@ -231,8 +234,12 @@ class RandomArrivalGenerator(object):
 
 
 def get_unix_timestamp():
+    r"""A wrapper function to get the current timestamp.
+    """
     return datetime.datetime.now().timestamp()
 
 
 def convert_unix_timesamp_to_datetime(unix_timesamp):
+    r"""A wrapper function to transfrom a unix_timestamp into a dattime object.
+    """
     return datetime.datetime.fromtimestamp(unix_timesamp)
