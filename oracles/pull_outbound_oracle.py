@@ -14,11 +14,12 @@
 
     Author: Stefan Bachhofner, Roman Mühlberger
 '''
-
 from apscheduler.schedulers.blocking import BlockingScheduler
+
 
 from utils import _Oracle, get_unix_timestamp, save_to_mongo
 import config
+
 
 
 class PullOutboundOracle(_Oracle):

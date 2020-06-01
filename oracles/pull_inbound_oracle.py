@@ -17,13 +17,21 @@
 from multiprocessing import Process
 import time
 
+
 import numpy as np
 import web3
 from apscheduler.schedulers.background import BackgroundScheduler
 
+
 from push_inbound_oracle import PushInboundOracle
-from utils import _EventListeningOracle, _TransactionSendingOracle, get_unix_timestamp, convert_unix_timesamp_to_datetime, save_to_mongo
+from utils import (
+	_EventListeningOracle, 
+	_TransactionSendingOracle, 
+	get_unix_timestamp, 
+	convert_unix_timesamp_to_datetime, 
+	save_to_mongo)
 import config
+
 
 
 class PullInboundOracle(_EventListeningOracle, _TransactionSendingOracle):

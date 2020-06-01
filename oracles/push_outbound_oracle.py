@@ -14,9 +14,9 @@
 
     Author: Stefan Bachhofner, Roman Mühlberger
 '''
-
 from utils import _EventListeningOracle, save_to_mongo, get_unix_timestamp
 import config
+
 
 
 class PushOutboundOracle(_EventListeningOracle):

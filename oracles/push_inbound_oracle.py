@@ -14,7 +14,6 @@
 
     Author: Stefan Bachhofner, Roman Mühlberger
 '''
-
 import web3
 from apscheduler.schedulers.blocking import BlockingScheduler
 
@@ -24,8 +23,8 @@ from utils import (
 	save_to_mongo,
 	get_unix_timestamp,
 	convert_unix_timesamp_to_datetime)
-
 import config
+
 
 
 class PushInboundOracle(_TransactionSendingOracle):
