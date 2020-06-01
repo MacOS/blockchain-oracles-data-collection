@@ -72,6 +72,9 @@ class _EventListeningOracle(_Oracle):
 		    "topics": [filter]})
 
     def listen_to_filter(self):
+        r"""Listens to <_filter> in an infinite loop. There is currently no way to terminate this loop!
+        A new event is processed by the method process_new_event.
+        """
         print(f"Listening to filter {self._filter} from smart contract {self._smart_contract_address}")
         while True:
             for event in self.eth_filter.get_new_entries():
