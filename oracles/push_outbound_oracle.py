@@ -20,7 +20,8 @@ import config
 
 
 class PushOutboundOracle(_EventListeningOracle):
-
+    r"""Implements the logic for the PushOutboundOracle.
+    """
     def __init__(self, *args, **kwargs):
         super(PushOutboundOracle, self).__init__(*args, **kwargs)
 
@@ -32,6 +33,8 @@ class PushOutboundOracle(_EventListeningOracle):
 
 
 def push_outbound_oracle():
+    r"""Warpps the PushOutboundOracle such that it enters its infinite loop.
+    """
     push_outbound_oracle = PushOutboundOracle(
         public_address=config.PUBLIC_ADDRESS,
         private_address=config.PRIVATE_ADDRESS,
