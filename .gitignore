@@ -1,3 +1,10 @@
+#Folder to ignore.
+tmp/
+
+# Files
+*.pdf
+*.desktop
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
