@@ -6,8 +6,8 @@
     
     for evalution purposes in the following submitted (not yet peer reviewed!) paper
 
-	Mühlberger, R., Di Ciccio, C., Castello Ferrer, E., Bachhofner, S., and Weber, I. (2020) Foundational
-	Oracle Patterns. Business Process Management: Blockchain Forum.
+    Mühlberger, R., Di Ciccio, C., Castello Ferrer, E., Bachhofner, S., and Weber, I. (2020) Foundational
+    Oracle Patterns. Business Process Management: Blockchain Forum.
 
     A pull in-bound oracle is a software artifact that writes data to the blockchain (in-bound) triggered
     by an on-chain event (pull).

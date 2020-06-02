@@ -6,8 +6,8 @@
     
     for evalution purposes in the following submitted (not yet peer reviewed!) paper
 
-	Mühlberger, R., Di Ciccio, C., Castello Ferrer, E., Bachhofner, S., and Weber, I. (2020) Foundational
-	Oracle Patterns. Business Process Management: Blockchain Forum.
+    Mühlberger, R., Di Ciccio, C., Castello Ferrer, E., Bachhofner, S., and Weber, I. (2020) Foundational
+    Oracle Patterns. Business Process Management: Blockchain Forum.
 
     A pull out-bound oracle is a software artifact that retrieves data from the blockchain (out-bound) triggered
     by an off-chain event (pull).
