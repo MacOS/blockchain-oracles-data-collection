@@ -38,7 +38,8 @@ class PushInboundOracle(_TransactionSendingOracle):
 
 
 class ArrivalState(PushInboundOracle):
-
+    r"""The arrival state wich is written to the blockchain.
+    """
     def __init__(self, arrival, *arg, **kwargs):
         super(ArrivalState, self).__init__(*arg, **kwargs)
 
