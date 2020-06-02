@@ -28,7 +28,11 @@ import config
 
 
 class PushInboundOracle(_TransactionSendingOracle):
+    r"""Implementation of the push inbound oracle. Logic that pertains to all inbound oracles has to
+    be implemented here.
 
+    A push inbound oracle writes sates on the blockchain via a transaction to a smart contract.
+    """
     def __init__(self, *args, **kwargs):
         super(PushInboundOracle, self).__init__(*args, **kwargs)
 
