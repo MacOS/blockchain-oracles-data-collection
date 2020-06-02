@@ -102,7 +102,9 @@ class OrderState(PullInboundOracle):
 
 
 class RandomVerifyCustomerGenerator(object):
-
+    r"""Generates random verify customer states. These are used by the push inbound oracle VerifyCustomer
+    above.
+    """
     def __init__(self):
         self.first_name_sample_space = ["Tony", "Steve", "Natascha", "Carol"]
         self.last_name_sample_space = ["Stark", "Rogers", "Romanof", "Danvors"]
