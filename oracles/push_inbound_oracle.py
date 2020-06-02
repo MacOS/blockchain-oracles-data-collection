@@ -53,6 +53,10 @@ class ArrivalState(PushInboundOracle):
 
 
 def execute_push_inbound_oracle():
+    r"""Wrapps the logic that is necessary to execute the push inbound oracle and the associated
+    measuring logic. The measuring logic includes taking timestamps and storing the generatred
+    random arrival states with the timestamps into MongoDB.
+    """
     random_arrival_state = RandomArrivalGenerator().get_random_arrival()
     
     push_inbound_oracle = ArrivalState(
