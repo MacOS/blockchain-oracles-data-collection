@@ -65,7 +65,8 @@ class VerifyCustomerState(PushInboundOracle):
 
 
 class OrderState(PullInboundOracle):
-
+    r"""The state that is pulled in by the smart contract.
+    """
     def __init__(self, *args, **kwargs):
         super(OrderState, self).__init__(*args, **kwargs)
 
