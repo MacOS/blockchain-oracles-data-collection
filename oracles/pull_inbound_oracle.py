@@ -171,6 +171,8 @@ def execute_pull_inbound_oracle():
 
 
 def main():
+    r"""Wrapps the pull inbound evalution.
+    """
     scheduler = BackgroundScheduler()
     scheduler.add_job(execute_push_inbound_oracle, "interval", minutes=15)
     scheduler.start()
