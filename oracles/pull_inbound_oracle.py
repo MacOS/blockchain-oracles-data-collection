@@ -35,7 +35,12 @@ import config
 
 
 class PullInboundOracle(_EventListeningOracle, _TransactionSendingOracle):
+    r"""Logic of the pull inbound oracle. Logic that pertains to all pull inbound oracles has to be
+    implemented here.
 
+    A pull inbound oracle writes states on the blockchain via a transaction on the request of the blockchain
+    component.
+    """
     def __init__(self, *args, **kwargs):
         super(PullInboundOracle, self).__init__(*args, **kwargs)
 
