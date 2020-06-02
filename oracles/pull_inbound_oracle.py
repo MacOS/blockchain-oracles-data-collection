@@ -46,7 +46,10 @@ class PullInboundOracle(_EventListeningOracle, _TransactionSendingOracle):
 
 
 class VerifyCustomerState(PushInboundOracle):
-
+    r"""The push inbound oracle that tirggers the pull inbound oracle. This is done simulate actions that
+    are done on- or offchain. Note that this is without loss of generality for the PullInbound description
+    in the paper.
+    """
     def __init__(self, verify_customer, *args, **kwargs):
         super(VerifyCustomerState, self).__init__(*args, **kwargs)
 
