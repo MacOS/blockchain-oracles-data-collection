@@ -85,6 +85,8 @@ def execute_push_inbound_oracle():
 
 
 def push_inbound_oracle():
+    r"""Wrapper for execute_push_inbound_oracle for printing purposes.
+    """
     transaction_hash, state = execute_push_inbound_oracle()
     print(f"Timestamp: {convert_unix_timesamp_to_datetime(get_unix_timestamp())} Transaction hash: {transaction_hash} | State: {state}")
 
