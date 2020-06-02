@@ -157,6 +157,10 @@ def execute_push_inbound_oracle():
 
 
 def execute_pull_inbound_oracle():
+    r"""Executes the pull inbound oracle, i.e. the pull inbound oracles is constantely in a listening mode.
+
+    Attention: listen_to_filter() enters an infinite loop in the main process!
+    """
     pull_inbound_oracle = OrderState(
         filter=config.CUSTOMER_TOPIC_ADDRESS_VERIFY_CUSTOMER,
         public_address=config.CUSTOMER_PUBLIC_KEY, private_address=config.CUSTOMER_PRIVATE_KEY,
