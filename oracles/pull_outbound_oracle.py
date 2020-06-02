@@ -65,6 +65,8 @@ def execute_pull_outbound_oracle():
 
 
 def main():
+    r"""Schedules the pull outbound oracle such that it is run every 15 minutes.
+    """
     scheduler = BlockingScheduler()
     scheduler.add_job(execute_pull_outbound_oracle, "interval", minutes=15)
     scheduler.start()
