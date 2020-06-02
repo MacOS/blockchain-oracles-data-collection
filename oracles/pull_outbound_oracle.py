@@ -23,7 +23,9 @@ import config
 
 
 class PullOutboundOracle(_Oracle):
-
+    r"""Implements the logic for the pull outbound oracle. This particular implementation uses the transaction
+    hash to retrieve a state.
+    """
     def __init__(self, *args, **kwargs):
         super(PullOutboundOracle, self).__init__(*args, **kwargs)
 
@@ -34,6 +36,11 @@ class PullOutboundOracle(_Oracle):
 
 
 def execute_pull_outbound_oracle():
+    r"""Wrapps the evalution logic for the pull outbound oracle.
+
+    Note that we always retrieve the same state such that this is not a varying factor, and hence it can
+    not influence the performance. This is without loss of generality.
+    """
     pull_outbound_oracle = PullOutboundOracle(
         public_address=config.PUBLIC_ADDRESS, private_address=config.PRIVATE_ADDRESS,
         smart_contract_address=config.ARRIVAL_SMART_CONTRACT_ADDRESS,
