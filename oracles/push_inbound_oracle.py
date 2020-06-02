@@ -92,6 +92,8 @@ def push_inbound_oracle():
 
  
 def main():
+    r"""Executes the push inbound oracle every 15 minutes.
+    """
     scheduler = BlockingScheduler()
     scheduler.add_job(push_inbound_oracle, "interval", minutes=15)
     scheduler.start()
