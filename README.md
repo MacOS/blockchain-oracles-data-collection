@@ -34,9 +34,9 @@ Contains some tests for the code in _oracles_ directory.
 
 [Univ. Prof. Dr. Ingo Weber, Chair of Software and Business Engineering, Technische Universitaet Berlin](https://scholar.google.at/citations?user=uZP6cXwAAAAJ)
 
-[Dipl.-Ing. Bakk. (FH) Maximilian Wöhrer, University of Vienna]()
+[Dipl.-Ing. Bakk. (FH) Maximilian Wöhrer, University of Vienna](https://scholar.google.at/citations?user=cLtHNX0AAAAJ)
 
-[Univ. Prof. Dr. Uwe Zdun, University of Vienna](https://scholar.google.at/citations?user=jLm9DCkAAAAJ&hl=de)
+[Univ. Prof. Dr. Uwe Zdun, University of Vienna](https://scholar.google.at/citations?user=jLm9DCkAAAAJ)
 
 # Links 
 [Ethereum price history API?](https://www.reddit.com/r/ethereum/comments/6xbwxp/ethereum_price_history_api/)
