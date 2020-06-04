@@ -4,6 +4,10 @@ Eduardo Castello Ferrer, Stefan Bachhofner, and Ingo Weger (2020): Foundational 
 Conference on Business Process Management. **This paper is currently under review!**
 
 # Directory Explanations
+[apps](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/apps)
+Contains applications that have been developed for demonstration purposes. It includes, for example,
+the described QR code application.
+
 [evaluation](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/evaluation)
 
 Contains the python and R code that was used to analyse the collected data on the proposed oracles.
