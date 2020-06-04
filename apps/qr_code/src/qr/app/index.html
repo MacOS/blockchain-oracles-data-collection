@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>QR Code Scanner</title>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=description content="QR Code Scanner is the fastest and most user-friendly web application.">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="QR Scanner" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#e4e4e4">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="QR Scanner" />
+    <meta name="msapplication-TileColor" content="#e4e4e4" />
+    <meta name="msapplication-TileImage" content="/images/touch/mstile-150x150.png" />
+    <meta name="theme-color" content="#fff" />
+    <link rel="apple-touch-icon" href="/images/touch/apple-touch-icon.jpg" />
+    <link rel="icon" type="image/png" href="/images/touch/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/images/touch/favicon-16x16.png" sizes="16x16" />
+    <link rel="shortcut icon" href="/images/touch/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="preload" as="script" href="decoder.js">
+    <script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<a class="navbar-brand" href="#">QR Code Scanner</a>
+</div>
+</nav>
+    <div class="app__layout">
+      <!-- Header -->
+      <header class="app__header">
+      </header>
+
+      <main class="app__layout-content">
+        <video autoplay></video>
+
+        <!-- Dialog  -->
+        <div class="app__dialog app__dialog--hide">
+          <div class="app__dialog-content">
+            <h5>QR Code</h5>
+            <input type="text" id="result">
+          </div>
+          <div class="app__dialog-actions">
+            <button type="button" class="app__dialog-open">Open</button>
+            <button type="button" class="app__dialog-close">Close</button>
+          </div>
+        </div>
+
+        <div class="app__dialog-overlay app__dialog--hide"></div>
+
+        <!-- Snackbar -->
+        <div class="app__snackbar"></div>
+      </main>
+    </div>
+    <div class="app__overlay">
+      <div class="app__overlay-frame"></div>
+      <!-- Scanner animation -->
+      <div class="custom-scanner"></div>
+      <div class="app__help-text"></div>
+    </div>
+
+    <div class="app__select-photos"></div>
+
+
+    <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.6/pwacompat.min.js" integrity="sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA"
+      crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>
