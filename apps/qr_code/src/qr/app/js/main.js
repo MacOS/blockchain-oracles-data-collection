@@ -4,7 +4,8 @@ import styles from '../css/styles.css';
 import isURL from 'is-url';
 //Web3 added
 let Web3 = require ('web3');
-var web3 = new Web3(new Web3.providers.WebsocketProvider("ws://127.0.0.1:8545"));
+ 
+var web3 = new Web3(new Web3.providers.WebsocketProvider("")); //ADD WEBSOCKET PROVIDER 
 var txDecoder = require('ethereum-tx-decoder');
 const EthereumTx = require('ethereumjs-tx');
 var sha256 = require('js-sha256');
@@ -110,11 +111,12 @@ window.addEventListener('DOMContentLoaded', () => {
     }, forSelectedPhotos);
   }
 
-  //save result in Blockchain
+  //SEND TO BLOCKCHAIN: PUSH-BASED
   function sendToBlockchain(resultText) {
     let contract = '';
     let count;
-    var address = "0x580f06fe89c1add98207a0fa9e192cae7fda1b82";
+    var address = ""; //ADD ADDRESS OF SMART CONTRACT
+    //ADD ABI
     var abi = [
   	{
   		"constant": false,
@@ -163,14 +165,13 @@ window.addEventListener('DOMContentLoaded', () => {
   ];
   var timestamp = new Date().getTime();
   var location = 'Port 5, Dubai, UAE';
-    var account = "0x4ddd105c39099f4e962073c4871ef06fab4bfa03"; //"<REDACTED ACCOUNT ADDRESS>";
-    //var privateKey = "a11a71bd713bbb32261d40601422ce538f10789680a6e521d0b2a6017a159d61"; //"<REDACTED PRIVATE KEY WITHOUT 0x PREFIX>";
-   const privateKey = Buffer.from('fa6e030f514d24b3fecfb9340ee482a578a0c0ccab2911accf7ca93a836172cf', 'hex');
+    var account = ""; //"<REDACTED ACCOUNT ADDRESS>"; // ADD ACCOUNT ADDRESS
+    //var privateKey = ""; //"<REDACTED PRIVATE KEY WITHOUT 0x PREFIX>"; //ADD PRIVATE KEY
+   const privateKey = Buffer.from('fa6e030f514d24b3fecfb9340ee482a578a0c0ccab2911accf7ca93a836172cf', 'hex'); //ADD PRIVATE KEY
      contract = new web3.eth.Contract(abi, address);
 
+  
   web3.eth.getTransactionCount(account).then(function(v) {
-      console.log(resultText);
-      console.log(timestamp);
       count = v;
       let data = contract.methods.setArrival(resultText, location, timestamp).encodeABI();
       console.log(data);
@@ -183,16 +184,17 @@ window.addEventListener('DOMContentLoaded', () => {
           nonce: count,
           to: address
       });
+      //VUILD RAW TRANSACTION
       let rawTransaction = {"from": account, "gasPrice": web3.utils.toHex(gasPrice), "gasLimit": web3.utils.toHex(gasLimit), "to": address, "data": data, "nonce": web3.utils.toHex(count)}
-      console.log(rawTransaction);
       let transaction = new EthereumTx(rawTransaction);
+      //SIGN TRANSACTION
       transaction.sign(privateKey);
       let rawTx = '0x'+transaction.serialize().toString('hex');
-      console.log(rawTx);
-      console.log(txDecoder.decodeTx(rawTx));
+      //SEND SIGNED TRANSACTION
       web3.eth.sendSignedTransaction(rawTx, function(err, hash) {
 
           if(!err) {
+            //DISPLAY HASH IF TRANSACTION WAS SUCCESSFUL
               console.log("Tx broadcasted: "+hash);
 
           }else {
