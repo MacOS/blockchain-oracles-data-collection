@@ -5,6 +5,7 @@ Conference on Business Process Management. **This paper is currently under revie
 
 # Directory Explanations
 [apps](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/apps)
+
 Contains applications that have been developed for demonstration purposes. It includes, for example,
 the described QR code application.
 
