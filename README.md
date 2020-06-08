@@ -1,31 +1,29 @@
 # Foundational Oracle Patterns 
-This GitHub repository contains the code that was used for the paper Roman Mühlberger, Stefan Bachhofner,
-Eduardo Castello Ferrer, Claudio Di Ciccio, Ingo Weber, Maximilian Wöhrer, and Uwe Zdun (2020): 
+This GitHub repository contains code, which was used for the following paper:
+Roman Mühlberger, Stefan Bachhofner, Eduardo Castello Ferrer, Claudio Di Ciccio, Ingo Weber, Maximilian Wöhrer, and Uwe Zdun (2020): 
 Foundational Oracle Patterns. International Conference on Business Process Management. **This paper is currently under review!**
 
 # Directory Explanations
 [apps](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/apps)
 
-Contains applications that have been developed for demonstration purposes. It includes, for example,
-the described QR code application.
+Contains the QR code application as described in the paper.
 
 [evaluation](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/evaluation)
 
-Contains the python and R code that was used to analyse the collected data on the proposed oracles.
+Contains python and R scripts, which were used to analyse the collected data from the communication between oracles and the blockchain.
 
 [oracles](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/oracles)
 
-Contains the python code for the proposed oracles. In other words, the code in this direcotry
-is one particular instantiation of the proposed oracle patterns, and are therefore by no means the only way how they
-can be implemented.
+Contains python code for the oracles as described in the paper. However, the code in this direcotry
+is one particular (centralized and Ethereum-tailored) implementation of the proposed oracle patterns, and are therefore by no means the only way how they can be implemented.
 
 [solidity](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/solidity)
 
-Contains the solidity code for the two smart contracts arrival and customer.
+Contains the solidity code for the two smart contracts "arrival" and "customer".
 
 [test](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/test)
 
-Contains some tests for the code in _oracles_ directory.
+Contains some tests for the code in the _oracles_ directory.
 
 
 # Authors
