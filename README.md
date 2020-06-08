@@ -1,7 +1,7 @@
-# Foundational Oracle Patterns 
+# Foundational Oracle Patterns: Connecting Blockchain to the Off-chain World
 This GitHub repository contains code, which was used for the following paper:
 Roman Mühlberger, Stefan Bachhofner, Eduardo Castello Ferrer, Claudio Di Ciccio, Ingo Weber, Maximilian Wöhrer, and Uwe Zdun (2020): 
-Foundational Oracle Patterns. International Conference on Business Process Management. **This paper is currently under review!**
+Foundational Oracle Patterns:Connecting Blockchain to the Off-chain World. International Conference on Business Process Management. **This paper is currently under review!**
 
 # Directory Explanations
 [apps](https://github.com/MacOS/blockchain-oracles-data-collection/tree/master/apps)
