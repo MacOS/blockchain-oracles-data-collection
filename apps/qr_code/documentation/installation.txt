@@ -23,6 +23,7 @@ Deploy the smart contracts.
 
 To run choose Web3 provider environment with [MY_NETWORK_ID]
 
+Edit the main.js file and insert Smart Contract address, ABI, Account Address, Private Key and other blocckhain-related fields.
 To start the application, run "npm run start", then "npm run build" and "npm run deploy".
 Create a QR Code on another device with any textual data.
 After running the applictaion, allow camera access and scan the QR code with the web camera. Note to open the concole to see the transation.
