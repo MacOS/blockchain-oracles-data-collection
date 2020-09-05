@@ -58,7 +58,7 @@ Contains some tests for the code in the _oracles_ directory.
 # Authors
 [Roman Mühlberber, MSc. (WU), Vienna University of Economics and Business](https://scholar.google.at/citations?user=aQVmc18AAAAJ&oi=ao)
 
-[Ass. Prof. Claudio Di Ciccio, Sapienza University of Rome](https://scholar.google.at/citations?user=OBwQoWsAAAAJ)
+[Claudio Di Ciccio, PhD, Sapienza University of Rome](http://diciccio.net/)
 
 [Eduardo Castello Ferrer, PhD, Massachusetts Institute of Technology](https://scholar.google.at/citations?hl=de&user=D1eifv4AAAAJ)
 

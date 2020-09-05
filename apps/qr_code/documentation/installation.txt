@@ -1,0 +1,34 @@
+INSTALLATION INSTRUCTIONS
+
+
+The repository contains an application, which can be run in order to scan QR codes both via a file upload or via camera scan and transmit the output to an Ethereum blockchain. In this file we cover the usage with the test network Ganache. 
+
+An installation of various dependencies is required.
+Please equip the application with node_modules.
+
+Install:
+npm install nodejs
+npm init
+npm install
+npm install web3
+npm install js-sha256
+npm install ethereum-tx-decoder
+npm install ethereumjs-tx
+npm install ganache-cli@7.0.0-beta.0 //to test it on Ganache Test Network
+run ganache with: ganache-cli --networkId [MY_NETWORK_ID] //if Ganache is used 
+
+Imortant! install Ganache version Ganache CLI v7.0.0-beta.0 (ganache-core: 3.0.0-beta.0) or above, otherwise Events won't work.
+
+Deploy the smart contracts. 
+
+To run choose Web3 provider environment with [MY_NETWORK_ID]
+
+Edit the main.js file and insert Smart Contract address, ABI, Account Address, Private Key and other blocckhain-related fields.
+To start the application, run "npm run start", then "npm run build" and "npm run deploy".
+Create a QR Code on another device with any textual data.
+After running the applictaion, allow camera access and scan the QR code with the web camera. Note to open the concole to see the transation.
+After the output was displayed, close the popup window.
+
+
+
+
