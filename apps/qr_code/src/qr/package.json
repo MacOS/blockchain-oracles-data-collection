@@ -31,7 +31,7 @@
 		"copy-webpack-plugin": "^4.5.3",
 		"cross-env": "^5.2.0",
 		"css-loader": "^1.0.0",
-		"danger": "^4.4.8",
+		"danger": "^11.2.0",
 		"extract-text-webpack-plugin": "4.0.0-beta.0",
 		"file-loader": "^2.0.0",
 		"html-webpack-plugin": "^3.2.0",
